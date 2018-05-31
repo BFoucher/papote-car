@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Car
 {
+
+    public function __construct(User $user)
+    {
+        $this->driver = $user;
+    }
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -23,6 +29,12 @@ class Car
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="cars")
      */
     private $driver;
+
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
 
     /**
      * @var int
@@ -66,7 +78,7 @@ class Car
     /**
      * @return int
      */
-    public function getNumberOfSeat(): int
+    public function getNumberOfSeat(): ?int
     {
         return $this->numberOfSeat;
     }
@@ -78,4 +90,22 @@ class Car
     {
         $this->numberOfSeat = $numberOfSeat;
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+
 }
