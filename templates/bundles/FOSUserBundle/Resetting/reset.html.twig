@@ -1,0 +1,10 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+
+<div class="row mt-5 justify-content-around">
+    <div class="col-md-4">
+{% include "@FOSUser/Resetting/reset_content.html.twig" %}
+    </div>
+</div>
+{% endblock fos_user_content %}

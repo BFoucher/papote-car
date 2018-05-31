@@ -1,0 +1,20 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="row mt-5 justify-content-around">
+        <div class="col-md-4 col-md-offset-1">
+            <div class="my-3">
+                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-flat btn-block">
+                    Pas encore membre  ?
+                </a>
+            </div>
+            {{ include('@FOSUser/Security/login_content.html.twig') }}
+            <div class="my-3">
+                <a href="{{ path('fos_user_resetting_request') }}" class="btn btn-xs btn-flat btn-block">
+                    Problème de mot de passe ?
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock fos_user_content %}

@@ -1,0 +1,19 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <div class="row mt-5 justify-content-around">
+        <div class="col-md-8">
+            <p>
+                Un e-mail a été envoyé. Il contient un lien sur lequel il vous faudra cliquer pour réinitialiser votre mot de passe.
+                <br />
+                <span class="text-muted">Remarque : Vous ne pouvez demander un nouveau mot de passe que toutes les {{ tokenLifetime }} heures.</span>
+                <br />
+                <br />
+                Si vous ne recevez pas un email, vérifiez votre dossier spam ou essayez à nouveau.
+            </p>
+        </div>
+    </div>
+{% endblock %}

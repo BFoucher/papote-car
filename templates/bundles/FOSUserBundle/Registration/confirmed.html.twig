@@ -1,0 +1,19 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <div class="row mt-5 justify-content-around">
+        <div class="col-md-8">
+            <p>
+                Bonjour <strong>{{ user.username }}</strong>, votre compte est maintenant activé.
+                <br />
+                Merci pour votre inscription.
+            <p>
+            <div class="text-center my-5">
+                <a href="{{ path('homepage') }}" class="btn btn-primary" role="button">Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
