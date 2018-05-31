@@ -149,4 +149,9 @@ class Journey
             $step->setJourney(null);
         }
     }
+
+    public function __toString()
+    {
+        return 'Journey-'.$this->id;
+    }
 }

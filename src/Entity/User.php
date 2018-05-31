@@ -24,6 +24,7 @@ class User extends BaseUser
      */
     private $cars;
 
+
     public function __construct()
     {
         $this->cars = new ArrayCollection();
