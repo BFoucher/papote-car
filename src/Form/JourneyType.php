@@ -32,6 +32,7 @@ class JourneyType extends AbstractType
                         ->setParameter('driver', $this->user);
                 },
                 'choice_label' => 'name',
+                'required' => true,
             ])
             ->add('startAt', DateTimeType::class)
             ->add('steps', CollectionType::class, [

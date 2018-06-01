@@ -22,6 +22,7 @@ class Journey
     /**
      * @var Car
      * @ORM\ManyToOne(targetEntity="App\Entity\Car")
+     * @Assert\NotBlank()
      */
     private $car;
 
