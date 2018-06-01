@@ -43,7 +43,7 @@ class Journey
      * @ORM\OneToMany(targetEntity="App\Entity\JourneyStep", mappedBy="journey", cascade={"all"})
      * @Assert\Count(
      *      min = 2,
-     *      minMessage = "You must specify 2 steps minimum",
+     *      minMessage = "Vous devez avoir au moins deux étapes",
      * )
      */
     private $steps;
@@ -61,7 +61,7 @@ class Journey
     public function __construct()
     {
         $this->steps = new ArrayCollection();
-        $this->startAt = new \DateTime();
+        $this->startAt = new \DateTime('tomorrow');
     }
 
     /**

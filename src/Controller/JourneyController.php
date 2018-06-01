@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Domain\Journey\JourneyStepHelper;
 use App\Entity\Journey;
-use App\Entity\JourneyStep;
 use App\Form\JourneyType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class JourneyController
+ * @Route("/journey")
  */
 class JourneyController extends Controller
 {
@@ -39,7 +39,7 @@ class JourneyController extends Controller
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      *
-     * @Route("/journey/create", name="journey_create")
+     * @Route("/create", name="journey_create")
      */
     public function create(Request $request, JourneyStepHelper $journeyStepHelper)
     {

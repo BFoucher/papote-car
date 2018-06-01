@@ -25,6 +25,7 @@ class JourneyType extends AbstractType
         $this->user = $options['currentUser'];
         $builder
             ->add('car', EntityType::class,[
+                'label' => 'Voiture',
                 'class' => Car::class,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('c')
@@ -34,7 +35,9 @@ class JourneyType extends AbstractType
                 'choice_label' => 'name',
                 'required' => true,
             ])
-            ->add('startAt', DateTimeType::class)
+            ->add('startAt', DateTimeType::class, [
+                'label' => 'Début'
+            ])
             ->add('steps', CollectionType::class, [
                 'label' => false,
                 'entry_type' => JourneyStepType::class,

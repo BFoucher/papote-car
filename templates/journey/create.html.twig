@@ -3,14 +3,14 @@
 {% block content %}
 
     <div class="col-12">
-        <h1>Create your journey</h1>
+        <h1>Créer votre voyage</h1>
 
         {{ form_start(form) }}
         {{ form_errors(form) }}
         {{ form_row(form.car) }}
         {{ form_row(form.startAt) }}
 
-        <h3>Steps</h3>
+        <h3>Etapes</h3>
         <ul class="steps list-group" data-prototype="{{ form_widget(form.steps.vars.prototype)|e('html_attr') }}">
             {% for step in form.steps %}
                 <li class="list-group-item">
@@ -26,7 +26,7 @@
 {% block javascripts %}
     <script>
         var $collectionHolder;
-        var $addStepLink = $('<a href="#" class="add_step_link">Add a step</a>');
+        var $addStepLink = $('<a href="#" class="add_step_link">Ajouter une étape</a>');
         var $newLinkLi = $('<li class="list-group-item"></li>').append($addStepLink);
 
         jQuery(document).ready(function() {
@@ -65,7 +65,7 @@
         }
 
         function addTagFormDeleteLink($tagFormLi) {
-            var $removeFormA = $('<a href="#">delete this step</a>');
+            var $removeFormA = $('<a href="#">Supprimer cette étape</a>');
             $tagFormLi.append($removeFormA);
 
             $removeFormA.on('click', function(e) {
