@@ -24,12 +24,6 @@ class JourneyStep
     private $city;
 
     /**
-     * @var \DateTimeInterface
-     * @ORM\Column(name="step_at", type="datetime", nullable=false)
-     */
-    private $stepAt;
-
-    /**
      * @var Journey
      * @ORM\ManyToOne(targetEntity="App\Entity\Journey", inversedBy="steps")
      */
@@ -40,11 +34,6 @@ class JourneyStep
      * @ORM\OneToOne(targetEntity="App\Entity\JourneyStep")
      */
     private $nextStep;
-
-    public function __construct()
-    {
-        $this->stepAt = new \DateTime();
-    }
 
     /**
      * @return mixed
@@ -68,22 +57,6 @@ class JourneyStep
     public function setCity(string $city): void
     {
         $this->city = $city;
-    }
-
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getStepAt(): \DateTimeInterface
-    {
-        return $this->stepAt;
-    }
-
-    /**
-     * @param \DateTimeInterface $stepAt
-     */
-    public function setStepAt(\DateTimeInterface $stepAt): void
-    {
-        $this->stepAt = $stepAt;
     }
 
     /**

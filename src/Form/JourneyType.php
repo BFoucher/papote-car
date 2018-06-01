@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -30,12 +31,14 @@ class JourneyType extends AbstractType
                         ->where('c.driver = :driver')
                         ->setParameter('driver', $this->user);
                 },
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
+            ->add('startAt', DateTimeType::class)
             ->add('steps', CollectionType::class, [
-               'entry_type' => JourneyStepType::class,
+                'label' => false,
+                'entry_type' => JourneyStepType::class,
                 'entry_options' => [
-                    'label' => false
+                    'label' => false,
                 ],
                 'allow_add' => true,
                 'by_reference' => false,

@@ -32,6 +32,13 @@ class Journey
     private $conductor;
 
     /**
+     * @var \DateTimeInterface
+     * @ORM\Column(name="step_at", type="datetime", nullable=false)
+     * @Assert\GreaterThan("now")
+     */
+    private $startAt;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\JourneyStep", mappedBy="journey", cascade={"all"})
      * @Assert\Count(
      *      min = 2,
@@ -53,6 +60,7 @@ class Journey
     public function __construct()
     {
         $this->steps = new ArrayCollection();
+        $this->startAt = new \DateTime();
     }
 
     /**
@@ -95,11 +103,33 @@ class Journey
         $this->car = $car;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getStartAt():? \DateTimeInterface
+    {
+        return $this->startAt;
+    }
+
+    /**
+     * @param \DateTimeInterface $stepAt
+     */
+    public function setStartAt(\DateTimeInterface $startAt): void
+    {
+        $this->startAt = $startAt;
+    }
+
+    /**
+     * @return ArrayCollection|null
+     */
     public function getSteps():? ArrayCollection
     {
         return $this->steps;
     }
 
+    /**
+     * @param JourneyStep $step
+     */
     public function addStep(JourneyStep $step)
     {
         if (!$this->steps->contains($step)) {
@@ -108,6 +138,9 @@ class Journey
         }
     }
 
+    /**
+     * @param JourneyStep $step
+     */
     public function removeStep(JourneyStep $step)
     {
         if ($this->steps->contains($step)) {

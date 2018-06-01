@@ -15,7 +15,6 @@ class JourneyStepType extends AbstractType
     {
         $builder
             ->add('city', TextType::class)
-            ->add('stepAt', DateTimeType::class)
         ;
     }
 

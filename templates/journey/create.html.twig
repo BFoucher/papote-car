@@ -8,13 +8,13 @@
         {{ form_start(form) }}
         {{ form_errors(form) }}
         {{ form_row(form.car) }}
+        {{ form_row(form.startAt) }}
 
         <h3>Steps</h3>
         <ul class="steps list-group" data-prototype="{{ form_widget(form.steps.vars.prototype)|e('html_attr') }}">
             {% for step in form.steps %}
                 <li class="list-group-item">
                     {{ form_row(step.city) }}
-                    {{ form_row(step.stepAt) }}
                 </li>
             {% endfor %}
         </ul>
