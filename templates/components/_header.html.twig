@@ -26,6 +26,9 @@
         <ul class="navbar-nav  my-auto pull-right">
             {% if is_granted('ROLE_USER') %}
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ path('message_index') }}"><span class="badge badge-pill badge-dark"><i class="far fa-envelope"></i></span> </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Mon profil</a>
                 </li>
             {% else %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Messagerie</h1>
+
+    <div class="row">
+        {% for message in messages %}
+            <div class="col-4">
+                <h4>de :{{ message.sender.username }}</h4>
+                <p>
+                    <strong>le :</strong>{{ message.sendedAt|date('d/m/Y à G:i') }}
+                </p>
+                <p>
+                    <strong>Journey-{{ message.journey }}</strong>
+                </p>
+            </div>
+            <div class="col-8"><p>{{ message.message }}</p></div>
+            <div class="col-12">
+                <hr>
+            </div>
+        {% endfor %}
+        {% if messages|length == 0 %}
+                <p>Vous n'avez encore aucun message</p>
+        {% endif %}
+
+        <a href="{{ path('message_new') }}" class="btn btn-primary">Ecrire un message</a>
+
+    </div>
+
+
+{% endblock %}
